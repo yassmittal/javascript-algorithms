@@ -30,8 +30,8 @@
   "scripts": {
     "lint": "eslint ./src/**",
     "test": "jest",
-    "coverage": "npm run test -- --coverage",
-    "ci": "npm run lint && npm run coverage",
+    "coverage": "bun run test -- --coverage",
+    "ci": "bun run lint && bun run coverage",
     "prepare": "husky install"
   },
   "devDependencies": {
