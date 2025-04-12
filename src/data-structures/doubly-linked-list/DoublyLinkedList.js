@@ -36,6 +36,11 @@ export default class DoublyLinkedList {
         }
         this.head = newNode;
 
+
+        if (!this.tail) {
+            this.tail = newNode;
+        }
+
         return this;
     }
 
@@ -84,7 +89,7 @@ export default class DoublyLinkedList {
                 deletedNode = currentNode;
 
                 // If head is going to be deleted
-                if (deletedNode = this.head) {
+                if (deletedNode === this.head) {
 
                     // set head to the second node, which will become new head
                     this.head = deletedNode.next;
@@ -102,12 +107,12 @@ export default class DoublyLinkedList {
                     // and so on we will reach till the tail if all element are the same element that needs to be deleted
                     // if we reach to the tail from here then the else if condition will not run so we will also neeed to handle the case of tail here also
                     // that's why we are checking here that the deleted node is tail
-                    if (deletedNode = this.tail) {
+                    if (deletedNode === this.tail) {
                         this.tail = null
                     }
 
                     // IF tail is going to be deleted
-                } else if (deletedNode = this.tail) {
+                } else if (deletedNode === this.tail) {
 
                     // set tail to the second last node, which will become new tail
                     this.tail = deletedNode.previous;
@@ -221,7 +226,7 @@ export default class DoublyLinkedList {
     toArray() {
         const nodes = [];
 
-        const currentNode = this.head;
+        let currentNode = this.head;
 
         while (currentNode) {
             nodes.push(currentNode)
