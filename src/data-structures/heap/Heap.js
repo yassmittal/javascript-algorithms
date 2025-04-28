@@ -131,7 +131,7 @@ export default class Heap {
 
         // Move the last element from the end of the head.
         this.heapContainer[0] = this.heapContainer.pop();
-        // TODO: implement heapify down
+        this.heapifyDown()
 
         return item;
     }
@@ -142,7 +142,7 @@ export default class Heap {
      * */
     add(item) {
         this.heapContainer.push(item);
-        // TODO: Implement heapify up
+        this.heapifyUp()
         return this;
     }
 
@@ -231,18 +231,17 @@ export default class Heap {
      * @param {number} [customStartIndex] 
      * */
 
+
     heapifyUp(customStartIndex) {
         // Take the last element (last in array or the bottom left in a tree)
         // in the heap container and lift it up until it is in the correct
         // order with respect to its parent element.
-        let currentIndex = customStartIndex || this.heapContainer.length - 1;
+        let currentIndex = customStartIndex || this.heapContainer.length;
 
-        while (
-            this.hasParent(currentIndex)
-            && !this.pairIsInCorrectOrder(this.parent(currentIndex), this.heapContainer[currentIndex])
-        ) {
-            this.swap(currentIndex, this.getParentIndex(currentIndex));
-            currentIndex = this.getParentIndex(currentIndex)
+        while (this.hasParent(currentIndex) && !this.pairIsInCorrectOrder(this.parent(currentIndex), this.heapContainer[currentIndex])) {
+            this.swap(currentIndex, this.getParentIndex(currentIndex))
+
+            currentIndex = this.getParentIndex(currentIndex);
         }
     }
 
@@ -252,7 +251,7 @@ export default class Heap {
      * */
 
     heapifyDown(customStartIndex) {
-        
+
         /**
          * Compare the parent element to its children and swap parent with appropriate 
          * child (smallest child for MinHeap, largest child for MaxHeap).
