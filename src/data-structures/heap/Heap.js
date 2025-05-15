@@ -236,7 +236,7 @@ export default class Heap {
         // Take the last element (last in array or the bottom left in a tree)
         // in the heap container and lift it up until it is in the correct
         // order with respect to its parent element.
-        let currentIndex = customStartIndex || this.heapContainer.length;
+        let currentIndex = customStartIndex || this.heapContainer.length - 1;
 
         while (this.hasParent(currentIndex) && !this.pairIsInCorrectOrder(this.parent(currentIndex), this.heapContainer[currentIndex])) {
             this.swap(currentIndex, this.getParentIndex(currentIndex))
