@@ -250,7 +250,7 @@ export default class Heap {
      * @param {number} [customStartIndex]
      * */
 
-    heapifyDown(customStartIndex) {
+    heapifyDown(customStartIndex = 0) {
 
         /**
          * Compare the parent element to its children and swap parent with appropriate 
@@ -268,13 +268,13 @@ export default class Heap {
             ) {
                 nextIndex = this.getRightChildIndex(currentIndex)
             } else {
-                nextIndex - this.getLeftChildIndex(currentIndex)
+                nextIndex = this.getLeftChildIndex(currentIndex)
             }
 
 
             if (this.pairIsInCorrectOrder(
-                this.heapContainer(currentIndex),
-                this.heapContainer(nextIndex)
+                this.heapContainer[currentIndex],
+                this.heapContainer[nextIndex]
             )) {
                 break;
             }
