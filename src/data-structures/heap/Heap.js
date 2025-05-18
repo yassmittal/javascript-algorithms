@@ -181,7 +181,7 @@ export default class Heap {
 
                 if (
                     this.hasLeftChild(indexToRemove) &&
-                    (!parentItem || this.pairIsInCorrectOrder(parentItem, this.heapContainer(indexToRemove)))
+                    (!parentItem || this.pairIsInCorrectOrder(parentItem, this.heapContainer[indexToRemove]))
                 ) {
                     this.heapifyDown(indexToRemove)
                 } else {
