@@ -83,7 +83,7 @@ export default class PriorityQueue extends MinHeap {
         if (this.priorities.get(a) === this.priorities.get(b)) {
             return 0
         }
-        return this.priorities.get(a) < this.priorities.get(b) ? 1 : -1
+        return this.priorities.get(a) < this.priorities.get(b) ? -1 : 1
     }
 
     /**
